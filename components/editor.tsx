@@ -130,7 +130,7 @@ export default function Editor() {
         <LexicalComposer 
             initialConfig={initialConfig}>
             <RichTextPlugin
-            contentEditable={<ContentEditable className='relative z-[1] p-5 text-slate-600 dark:text-slate-400 outline-none border border-slate-600/10  focus:border-slate-200 dark:border-slate-700 dark:focus:border-slate-600 rounded-lg min-h-screen sm:min-h-[20rem]'/>}
+            contentEditable={<ContentEditable className='relative z-[1] p-5 text-slate-600 dark:text-slate-400 outline-none border border-slate-600/10  focus:border-slate-200 dark:border-slate-700 dark:focus:border-slate-600 rounded-lg min-h-screen sm:min-h-[22rem]'/>}
             placeholder={<div className='absolute top-5 left-5 text-slate-400 pointer-events-none z-[0]'>Enter some text...</div>}
             ErrorBoundary={LexicalErrorBoundary}
             />
