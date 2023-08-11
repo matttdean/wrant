@@ -123,8 +123,21 @@ export default function Editor() {
             onError,
         }
 
+        const deleteDocument = (id: any) => {
+            const documents = databases.deleteDocument(
+                process.env.NEXT_PUBLIC_DATABASE_ID!,
+                process.env.NEXT_PUBLIC_EDITORSTATES_COLLECTION_ID!,
+                id
+            );
+            documents.then(response => {
+                console.log(response);
+            }, error => {
+                console.log(error);
+            });
+        }
+
   return (
-    <div className='w-11/12 sm:w-8/12'>
+    <div className='w-11/12 sm:w-8/12 mb-10'>
     <div className='relative  bg-white dark:bg-slate-800 rounded-lg mt-10'>
         { loading ? <div>Loading...</div> :
         <LexicalComposer 
@@ -143,7 +156,7 @@ export default function Editor() {
         </LexicalComposer>
     }
     </div>
-    <DocumentList updateEditor={updateEditor}/>
+    <DocumentList updateEditor={updateEditor} deleteDocument={deleteDocument}/>
     </div>
   )
 }
