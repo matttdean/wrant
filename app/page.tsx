@@ -8,7 +8,10 @@ export default function Home() {
     <main className="flex items-center flex-col">
       <Header />
       <SectionDivider />
+      {/* context provider */}
       <Editor />
+      {/* documentlist */}
+      {/* /context provider */}
     </main>
   )
 }

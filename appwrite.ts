@@ -42,15 +42,18 @@ export const getDocuments = () => {
 
 }
 
-export const saveDocument = (editorState: any) => {
+export const saveDocument = (editorState: string, updateEditorById: any,  successMessage: any) => {
+
 const document = databases.createDocument(process.env.NEXT_PUBLIC_DATABASE_ID!, process.env.NEXT_PUBLIC_EDITORSTATES_COLLECTION_ID!, ID.unique(), 
 {   
     "editorstate": editorState 
 });
 
 document.then(function (response) {
-    console.log(response); // Success
+    updateEditorById(response.$id)// Success
+    successMessage('Saved!', 'success');
 }, function (error) {
+    successMessage('Something went wrong...', 'error');
     console.log(error); // Failure
 });
 }
